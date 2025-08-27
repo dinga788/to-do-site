@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="card">
+    <h1>Список дел</h1>
+    <div class="content-wrapper">
+        <div class="todos-container" id="todosContainer">
+
+        </div>
+        <div class="knopki">
+            <div class="filtr">
+                <div class="filtrButton" id="filtrMenu">
+                    Фильтр
+                    <img src="/src/spisock.png" alt="" class="spisock">
+                </div>
+                <ul class="filtrDropMenu">
+                    <li class="filtrDropItem" data-type="all">Все</li>
+                    <li class="filtrDropItem" data-type="done">Завершенные</li>
+                    <li class="filtrDropItem" data-type="undone">Незавершенные</li>
+                    <li class="filtrDropItem" data-type="low">Низкий приоритет</li>
+                    <li class="filtrDropItem" data-type="medium">Средний приоритет</li>
+                    <li class="filtrDropItem" data-type="high">Высокий приоритет</li>
+                </ul>
+            </div>
+            <div class="addDelo">
+                <div class="addButton">
+                    <img src="/src/plusick.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modalOverlay" id="modalOverlay">
+    <div class="modal">
+        <div class="modalHeader">
+            <h2>Добавить новое дело</h2>
+            <span class="modalClose">&times;</span>
+        </div>
+        <div class="modalBody">
+            <div class="formGroup">
+                <label for="taskName">Название дела:</label>
+                <input type="text" id="taskName" placeholder="Введите название дела">
+            </div>
+            <div class="formGroup">
+                <label>Приоритет:</label>
+                <div class="priorityButtons">
+                    <button class="priorityBtn" data-priority="low">Низкий</button>
+                    <button class="priorityBtn" data-priority="medium">Средний</button>
+                    <button class="priorityBtn" data-priority="high">Высокий</button>
+                </div>
+            </div>
+        </div>
+        <div class="modalFooter">
+            <button class="addTaskBtn">Добавить</button>
+            <button class="cancelBtn">Отмена</button>
+        </div>
+    </div>
+</div>
+    <script src="/js/index.js"></script>
+</body>
+</html>

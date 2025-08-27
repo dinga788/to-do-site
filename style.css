@@ -1,0 +1,316 @@
+:root{
+    --baseColor:#FFB703;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-image: url(/src/background.jpg);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card{
+     width: 800px;
+    height: 657px;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.20);
+    backdrop-filter: blur(80px) brightness(1.1) contrast(1.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15), 
+                inset 0 1px 1px 0 rgba(255, 255, 255, 0.35), 
+                inset 0 -1px 2px 0 rgba(255, 255, 255, 0.20);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    opacity: 0.95;
+    -webkit-backdrop-filter: blur(35px);
+    backdrop-filter: blur(35px);
+    display: flex;
+    flex-direction: column;
+}
+
+h1{
+    font-family: "Ubuntu", sans-serif;
+    font-size: 30px;
+    font-style: normal;
+    color: #023047;
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-bottom: 10px;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.dela{
+    margin-left: 50px;
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.delo{
+    width: 475px;
+    height: 56px;
+    background-color: #8BC9D8;
+    border-radius: 16px;
+    font-family: "Ubuntu", sans-serif;
+    color: #023047;
+    font-size: 30px;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+}
+
+.redy-div-outer{
+    width: 55px;
+    height: 56px;
+    border: 5px solid var(--baseColor);
+    border-radius: 16px;
+    margin-left: 20px;
+    box-sizing: border-box;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.redy-div-inner {
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    background-color: transparent;
+    border-radius: 8px;
+    transition: background-color 0.3s ease-in-out;
+    margin: 10px;
+}
+
+.importance{
+    width: 55px;
+    height: 56px;
+    border-radius: 16px;
+    margin-left: 20px;
+    background-color: var(--baseColor);
+}
+
+.delete{
+    width: 55px;
+    height: 56px;
+    border-radius: 16px;
+    margin-left: 20px;
+    background-color: var(--baseColor);
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.knopki{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+    margin-bottom: 0px;
+    justify-content: flex-end;
+    margin-right: 50px;
+    margin-bottom: 50px;
+}
+
+.filtrButton {
+    width: 252px;
+    height: 60px;
+    border-radius: 16px;
+    border: 5px solid var(--baseColor);
+    cursor: pointer;
+    font-size: 30px;
+    font-family: "Ubuntu", sans-serif;
+    color: #023047;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 30px;
+    position: relative;
+    font-weight: 700;
+    gap: 8px;
+}
+
+.addButton{
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    background-color: var(--baseColor);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.spisock{
+    width: 30px;
+    height: 15px;
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+}
+
+.filtr{
+    position: relative;
+    display: inline-block;
+}
+
+.filtrDropMenu{
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 5px;
+    padding: 0;
+    list-style: none;
+    min-width: 150px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.filtrDropMenu.show{
+    display: block;
+}
+
+.filtrDropItem{
+    padding: 10px 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+}
+
+.filtrDropItem:last-child{
+    border-bottom: none;
+}
+
+.filtrButton.active .spisock {
+    transform: rotate(180deg);
+}
+
+.modalOverlay{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 10000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalOverlay.show {
+    display: flex;
+}
+
+.modal {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    width: 500px;
+    max-width: 90%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    font-family: "Ubuntu", sans-serif;
+}
+
+.modalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 15px;
+}
+
+.modalHeader h2 {
+    margin: 0;
+    color: #023047;
+    font-size: 24px;
+}
+
+.modalClose {
+    font-size: 28px;
+    cursor: pointer;
+    color: #999;
+    font-weight: bold;
+}
+
+.formGroup {
+    margin-bottom: 25px;
+}
+
+.formGroup label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #023047;
+}
+
+.priorityButtons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.priorityBtn {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid #8BC9D8;
+    border-radius: 10px;
+    background: white;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.priorityBtn.active {
+    background: var(--baseColor);
+    border-color: var(--baseColor);
+    color: white;
+    font-weight: bold;
+}
+
+.modalFooter {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.addTaskBtn, .cancelBtn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.addTaskBtn {
+    background: var(--baseColor);
+    color: white;
+}
+
+.cancelBtn {
+    background: #f0f0f0;
+    color: #666;
+}
+
+.high{
+    background-color: #EA4520;
+}
+
+.medium {
+    background-color: #E9CE22;
+}
+
+.low {
+    background-color: #26E53C;
+}
